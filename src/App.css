@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,4 +24,62 @@
   to {
     transform: rotate(360deg);
   }
+}
+.box {
+  background-color: #27bcd2;
+  height: 500px;
+  width: 1400px;
+  margin: 5rem 5rem;
+  display: flex;
+  justify-content: space-around;
+}
+.leftpannel {
+  background-color: #cfc9c9;
+  height: 80%;
+  width: 45%;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.rightpannel {
+  background-color: #cfc9c9;
+  height: 80%;
+  width: 45%;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.chart {
+  border-style: ridge;
+}
+.charts {
+  width: 100%;
+}
+.chart-data {
+  width: 100%;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  background-color: #cfc9c9;
+}
+.chart-div-3 {
+  background-color: #cfc9c9;
+}
+table {
+  width: 100%;
+  height: 100%;
+  border-spacing: 10px;
+}
+input {
+  height: 18px;
+}
+::placeholder {
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+}
+td,
+th {
+  background-color: #c5c5c5;
 }
