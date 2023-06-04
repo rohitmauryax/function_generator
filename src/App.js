@@ -1,14 +1,26 @@
+import { useEffect, useState } from "react";
 import "./App.css";
-import Charts from "./components/chart1";
+import Chart1 from "./components/chart1";
 import Chart from "./components/chart2";
+import { dataRef } from "./components/Firebase";
 
 export default function App() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    dataRef
+      .ref()
+      .child("data")
+      .on("value", (data) => {
+        const getData = Object.values(data.val());
+        setData(getData);
+      });
+  }, []);
   return (
     <>
       <div className="box">
         <div className="leftpannel">
           <div className="charts">
-            <Charts />
+            <Chart1 data={data} />
           </div>
           <div className="chart-data">
             <table>
