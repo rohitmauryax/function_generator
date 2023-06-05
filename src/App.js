@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Chart1 from "./components/chart1";
-import Chart from "./components/chart2";
+import Chart2 from "./components/chart2";
+import Chart3 from "./components/chart3";
 import { dataRef } from "./components/Firebase";
 
 export default function App() {
@@ -20,26 +21,29 @@ export default function App() {
       <div className="box">
         <div className="leftpannel">
           <div className="charts">
-            <Chart1 data={data} />
+            {data[1]==1 &&<Chart1/>}
+            {data[1]==2 &&<Chart2/>}
+            {data[1]==3 &&<Chart3/>}
+
           </div>
           <div className="chart-data">
             <table>
               <tr>
                 <th>WAVE</th>
                 <td>
-                  <input placeholder="SINE"></input>
+                  <input placeholder={(data[1]==1 &&"Sine")||(data[1]==2 &&"Triangle")||(data[1]==3 &&"Square")}></input>
                 </td>
               </tr>
               <tr>
                 <th>FREQ</th>
                 <td>
-                  <input placeholder="01000000.000000HZ"></input>
+                  <input placeholder={data[0]+"KHz"}></input>
                 </td>
               </tr>
               <tr>
                 <th>AMPL</th>
                 <td>
-                  <input placeholder="05.000V"></input>
+                  <input placeholder="00.000V"></input>
                 </td>
               </tr>
               <tr>
@@ -61,9 +65,9 @@ export default function App() {
             </table>
           </div>
         </div>
-        <div className="rightpannel">
+        {/* <div className="rightpannel">
           <div className="charts">
-            <Chart />
+            <Chart3 />
           </div>
           <div className="chart-data">
             <table>
@@ -103,7 +107,7 @@ export default function App() {
               </tr>
             </table>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
