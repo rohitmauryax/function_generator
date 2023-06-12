@@ -18,96 +18,98 @@ export default function App() {
   }, []);
   return (
     <>
-      <div className="box">
-        <div className="leftpannel">
-          <div className="charts">
-            {data[1]==1 &&<Chart1/>}
-            {data[1]==2 &&<Chart2/>}
-            {data[1]==3 &&<Chart3/>}
-
+      <div className="container">
+        <header>
+          <div className="navbar">
+            <div className="logo">
+              <p className="slogan">Trust The Power</p>
+            </div>
+            <div className="nav-option">
+              <ul>
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Contact Us</li>
+              </ul>
+            </div>
           </div>
-          <div className="chart-data">
-            <table>
-              <tr>
-                <th>WAVE</th>
-                <td>
-                  <input placeholder={(data[1]==1 &&"Sine")||(data[1]==2 &&"Triangle")||(data[1]==3 &&"Square")}></input>
-                </td>
-              </tr>
-              <tr>
-                <th>FREQ</th>
-                <td>
-                  <input placeholder={data[0]+"KHz"}></input>
-                </td>
-              </tr>
-              <tr>
-                <th>AMPL</th>
-                <td>
-                  <input placeholder="00.000V"></input>
-                </td>
-              </tr>
-              <tr>
-                <th>OFFSET</th>
-                <td>
-                  <input placeholder="00.000V"></input>
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div className="chart-div-3">
-            <table>
-              <tr>
-                <th>PHASE</th>
-                <th>
-                  <input placeholder="000 degree" />
-                </th>
-              </tr>
-            </table>
+        </header>
+        <div className="box">
+          <div className="leftpannel">
+            <div className="charts">
+              {data[1] == 1 && <Chart1 />}
+              {data[1] == 2 && <Chart2 />}
+              {data[1] == 3 && <Chart3 />}
+            </div>
+            <div className="chart-data">
+              <table>
+                <tr>
+                  <th>WAVE</th>
+                  <td>
+                    <input
+                      placeholder={
+                        (data[1] == 1 && "Sine") ||
+                        (data[1] == 2 && "Triangle") ||
+                        (data[1] == 3 && "Square")
+                      }
+                    ></input>
+                  </td>
+                </tr>
+                <tr>
+                  <th>FREQ</th>
+                  <td>
+                    <input placeholder={data[0] + "KHz"}></input>
+                  </td>
+                </tr>
+                <tr>
+                  <th>AMPL</th>
+                  <td>
+                    <input placeholder="00.000V"></input>
+                  </td>
+                </tr>
+                <tr>
+                  <th>OFFSET</th>
+                  <td>
+                    <input placeholder="00.000V"></input>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div className="chart-div-3">
+              <table>
+                <tr>
+                  <th>PHASE</th>
+                  <th>
+                    <input placeholder="000 degree" />
+                  </th>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
-        {/* <div className="rightpannel">
-          <div className="charts">
-            <Chart3 />
+        <footer>
+          <div className="footer-opt">
+            <div className="copyright">
+              <p style={{ fontSize: "16px" }}>
+                Copyright © 2020-2024 BVCOE,Inc. - All Rights Reserved.{" "}
+              </p>
+              <p>Made with ❤️ Shivansh & Rohit</p>
+            </div>
+            <div className="social">
+              <div className="border">
+                <i class="fa-brands fa-facebook"></i>
+              </div>
+              <div className="border">
+                <i class="fa-brands fa-google"></i>
+              </div>
+              <div className="border">
+                <i class="fa-brands fa-twitter"></i>
+              </div>
+              <div className="border">
+                <i class="fa-brands fa-square-instagram"></i>
+              </div>
+            </div>
           </div>
-          <div className="chart-data">
-            <table>
-              <tr>
-                <th>WAVE</th>
-                <td>
-                  <input placeholder="SINE"></input>
-                </td>
-              </tr>
-              <tr>
-                <th>FREQ</th>
-                <td>
-                  <input placeholder="01000000.000000HZ"></input>
-                </td>
-              </tr>
-              <tr>
-                <th>AMPL</th>
-                <td>
-                  <input placeholder="05.000V"></input>
-                </td>
-              </tr>
-              <tr>
-                <th>OFFSET</th>
-                <td>
-                  <input placeholder="00.000V"></input>
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div className="chart-div-3">
-            <table>
-              <tr>
-                <th>PHASE</th>
-                <th>
-                  <input placeholder="000 degree" />
-                </th>
-              </tr>
-            </table>
-          </div>
-        </div> */}
+        </footer>
       </div>
     </>
   );
