@@ -36,9 +36,9 @@ export default function App() {
         <div className="box">
           <div className="leftpannel">
             <div className="charts">
-              {data[1] == 1 && <Chart1 />}
-              {data[1] == 2 && <Chart2 />}
-              {data[1] == 3 && <Chart3 />}
+              {data[1] === 0 && <Chart1 />}
+              {data[1] === 2 && <Chart2 />}
+              {data[1] === 1 && <Chart3 />}
             </div>
             <div className="chart-data">
               <table>
@@ -47,9 +47,9 @@ export default function App() {
                   <td>
                     <input
                       placeholder={
-                        (data[1] == 1 && "Sine") ||
-                        (data[1] == 2 && "Triangle") ||
-                        (data[1] == 3 && "Square")
+                        (data[1] === 0 && "Sine") ||
+                        (data[1] === 2 && "Triangle") ||
+                        (data[1] === 1 && "Square")
                       }
                     ></input>
                   </td>
@@ -92,7 +92,7 @@ export default function App() {
               <p style={{ fontSize: "16px" }}>
                 Copyright © 2020-2024 BVCOE,Inc. - All Rights Reserved.{" "}
               </p>
-              <p>Made with ❤️ Shivansh & Rohit</p>
+              <p>Made with ❤️By Shivansh & Rohit</p>
             </div>
             <div className="social">
               <div className="border">
