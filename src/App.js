@@ -111,7 +111,6 @@ export default function App() {
               <p style={{ fontSize: "16px" }}>
                 Copyright © 2020-2024 BVCOE,Inc. - All Rights Reserved.{" "}
               </p>
-              <p>Made with ❤️By Shivansh, Rohit, Pranay & Sagar</p>
             </div>
             <div className="social">
               <div className="border">
