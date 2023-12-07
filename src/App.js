@@ -4,18 +4,37 @@ import Chart1 from "./components/chart1";
 import Chart2 from "./components/chart2";
 import Chart3 from "./components/chart3";
 import { dataRef } from "./components/Firebase";
+import { get, ref } from "firebase/database";
+import { database } from "./components/firebaseconfig";
 
 export default function App() {
   const [data, setData] = useState([]);
+  // useEffect(() => {
+  //   dataRef
+  //     .ref()
+  //     .child("data")
+  //     .on("value", (data) => {
+  //       const getData = Object.values(data.val());
+  //       setData(getData);
+  //       console.log(getData);
+  //     });
+  // }, []);
   useEffect(() => {
-    dataRef
-      .ref()
-      .child("data")
-      .on("value", (data) => {
-        const getData = Object.values(data.val());
-        setData(getData);
+    const userRef = ref(database, "data");
+    get(userRef)
+      .then((sanpshot) => {
+        if (sanpshot.exists()) {
+          const userArray = Object.entries(sanpshot.val());
+          setData(userArray);
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((err) => {
+        console.error(err);
       });
   }, []);
+  console.log(data[1][1]);
   return (
     <>
       <div className="container">
@@ -36,9 +55,9 @@ export default function App() {
         <div className="box">
           <div className="leftpannel">
             <div className="charts">
-              {data[1] === 0 && <Chart1 />}
-              {data[1] === 2 && <Chart2 />}
-              {data[1] === 1 && <Chart3 />}
+              {data[1][1] === 0 && <Chart1 />}
+              {data[1][1] === 2 && <Chart2 />}
+              {data[1][1] === 1 && <Chart3 />}
             </div>
             <div className="chart-data">
               <table>
@@ -47,9 +66,9 @@ export default function App() {
                   <td>
                     <input
                       placeholder={
-                        (data[1] === 0 && "Sine") ||
-                        (data[1] === 2 && "Triangle") ||
-                        (data[1] === 1 && "Square")
+                        (data[1][1] === 0 && "Sine") ||
+                        (data[1][1] === 2 && "Triangle") ||
+                        (data[1][1] === 1 && "Square")
                       }
                     ></input>
                   </td>
@@ -57,7 +76,7 @@ export default function App() {
                 <tr>
                   <th>FREQ</th>
                   <td>
-                    <input placeholder={data[0] + "KHz"}></input>
+                    <input placeholder={data[0][1] + "KHz"}></input>
                   </td>
                 </tr>
                 <tr>
