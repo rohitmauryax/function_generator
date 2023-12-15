@@ -76,7 +76,7 @@ export default function App() {
                 <tr>
                   <th>FREQ</th>
                   <td>
-                    <input placeholder={data[0][1] + "KHz"}></input>
+                    <input placeholder={data[0][1] + "Hz"}></input>
                   </td>
                 </tr>
                 <tr>
