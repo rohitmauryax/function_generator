@@ -8,7 +8,7 @@ import { get, ref } from "firebase/database";
 import { database } from "./components/firebaseconfig";
 
 export default function App() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   // useEffect(() => {
   //   dataRef
   //     .ref()
@@ -19,7 +19,8 @@ export default function App() {
   //       console.log(getData);
   //     });
   // }, []);
-  useEffect(() => {
+
+  const dataFetch = async () => {
     const userRef = ref(database, "data");
     get(userRef)
       .then((sanpshot) => {
@@ -33,9 +34,15 @@ export default function App() {
       .catch((err) => {
         console.error(err);
       });
+  };
+
+  useEffect(() => {
+    dataFetch();
   }, []);
-  console.log(data[1][1]);
-  return (
+
+  return data === null ? (
+    <h1>Loading...</h1>
+  ) : (
     <>
       <div className="container">
         <header>
@@ -104,6 +111,53 @@ export default function App() {
               </table>
             </div>
           </div>
+        </div>
+        <div className="bubble-holder">
+          <p className="bubble" style={{ "--i": 71 }}></p>
+          <p className="bubble" style={{ "--i": 45 }}></p>
+          <p className="bubble" style={{ "--i": 29 }}></p>
+          <p className="bubble" style={{ "--i": 97 }}></p>
+          <p className="bubble" style={{ "--i": 42 }}></p>
+          <p className="bubble" style={{ "--i": 31 }}></p>
+          <p className="bubble" style={{ "--i": 85 }}></p>
+          <p className="bubble" style={{ "--i": 63 }}></p>
+          <p className="bubble" style={{ "--i": 49 }}></p>
+          <p className="bubble" style={{ "--i": 87 }}></p>
+          <p className="bubble" style={{ "--i": 58 }}></p>
+          <p className="bubble" style={{ "--i": 21 }}></p>
+          <p className="bubble" style={{ "--i": 63 }}></p>
+          <p className="bubble" style={{ "--i": 89 }}></p>
+          <p className="bubble" style={{ "--i": 25 }}></p>
+          <p className="bubble" style={{ "--i": 12 }}></p>
+          <p className="bubble" style={{ "--i": 36 }}></p>
+          <p className="bubble" style={{ "--i": 79 }}></p>
+          <p className="bubble" style={{ "--i": 11 }}></p>
+          <p className="bubble" style={{ "--i": 35 }}></p>
+          <p className="bubble" style={{ "--i": 69 }}></p>
+          <p className="bubble" style={{ "--i": 51 }}></p>
+          <p className="bubble" style={{ "--i": 93 }}></p>
+          <p className="bubble" style={{ "--i": 87 }}></p>
+          <p className="bubble" style={{ "--i": 44 }}></p>
+          <p className="bubble" style={{ "--i": 26 }}></p>
+          <p className="bubble" style={{ "--i": 58 }}></p>
+          <p className="bubble" style={{ "--i": 71 }}></p>
+          <p className="bubble" style={{ "--i": 96 }}></p>
+          <p className="bubble" style={{ "--i": 57 }}></p>
+          <p className="bubble" style={{ "--i": 79 }}></p>
+          <p className="bubble" style={{ "--i": 37 }}></p>
+          <p className="bubble" style={{ "--i": 16 }}></p>
+          <p className="bubble" style={{ "--i": 80 }}></p>
+          <p className="bubble" style={{ "--i": 43 }}></p>
+          <p className="bubble" style={{ "--i": 77 }}></p>
+          <p className="bubble" style={{ "--i": 59 }}></p>
+          <p className="bubble" style={{ "--i": 26 }}></p>
+          <p className="bubble" style={{ "--i": 99 }}></p>
+          <p className="bubble" style={{ "--i": 16 }}></p>
+          <p className="bubble" style={{ "--i": 69 }}></p>
+          <p className="bubble" style={{ "--i": 81 }}></p>
+          <p className="bubble" style={{ "--i": 55 }}></p>
+          <p className="bubble" style={{ "--i": 29 }}></p>
+          <p className="bubble" style={{ "--i": 96 }}></p>
         </div>
         <footer>
           <div className="footer-opt">
